@@ -11,14 +11,14 @@ class Queue {
         if (!this.isEmpty()) {
             return this.array.shift();
         }
-        console.log('Stack is empty');
+        throw new Error("Queue is empty");
     }
 
     front() {
         if (!this.isEmpty()) {
             return this.array[0];
         }
-        console.log('Stack is empty');
+        throw new Error("Queue is empty");
     }
 
     isEmpty() {

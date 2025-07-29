@@ -11,14 +11,14 @@ class Stack {
         if (!this.isEmpty()) {
             return this.array.pop();
         }
-        console.log('Stack is empty');
+        throw new Error('Stack is empty');
     }
 
     peek() {
         if (!this.isEmpty()) {
             return this.array[this.size() - 1];
         }
-        console.log('Stack is empty');
+        throw new Error('Stack is empty');
     }
 
     isEmpty() {
@@ -37,9 +37,9 @@ function checkBrackets(str) {
     const stack = new Stack();
     const bracketsArray = str.split('');
     const brackets = {
-        '(': ')',
-        '[': ']',
-        '{': '}'
+        "(": ")",
+        "[": "]",
+        "{": "}"
     };
     for (let i = 0; i <= bracketsArray.length - 1; i += 1) {
         if (brackets[bracketsArray[i]]) {
