@@ -1,5 +1,8 @@
-import {generateArray} from "./randomArr.js";
+// import {generateArray} from "./randomArr.js";
 function bubbleSort(array) {
+    if (!Array.isArray(array)) {
+        throw new TypeError("Value must be an array");
+    }
     for (let i = 0; i < array.length; i += 1) {
         for (let j = 0; j < array.length - 1; j += 1) {
             if (array[j] > array[j + 1]) {
@@ -12,8 +15,10 @@ function bubbleSort(array) {
     return array;
 }
 
-const arr = generateArray(100000);
-bubbleSort(arr);
+module.exports = bubbleSort;
+
+// const arr = generateArray(100000);
+// bubbleSort(arr);
 console.log(performance.now());
 
 // 10 -> 31.x ms

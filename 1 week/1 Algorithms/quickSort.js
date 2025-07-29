@@ -1,8 +1,8 @@
-import {generateArray} from "./randomArr.js";
+//import {generateArray} from "./randomArr.js";
 
 function quickSort(arr, left = 0, right = arr.length - 1) {
     if (left >= right) {
-        return;
+        return arr;
     }
 
     const pivotIndex = partition(arr, left, right);
@@ -27,9 +27,9 @@ function partition(arr, left, right) {
     [arr[i], arr[right]] = [arr[right], arr[i]];
     return i;
 }
-
-const arr = generateArray(100000);
-quickSort(arr);
+module.exports = quickSort;
+// const arr = generateArray(100000);
+// quickSort(arr);
 console.log(performance.now());
 
 // 10 -> 32.x ms
