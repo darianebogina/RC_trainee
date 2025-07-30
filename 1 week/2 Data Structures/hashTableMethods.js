@@ -1,6 +1,6 @@
 class HashTable {
-    constructor() {
-        this.array = new Array(150);
+    constructor(size) {
+        this.array = new Array(size);
     }
 
     _getBucket(key) {
@@ -12,7 +12,7 @@ class HashTable {
         const obj = this._getBucket(key);
         const index = obj.index;
         const bucket = obj.bucket || [];
-        if (!bucket) {
+        if (bucket.length === 0) {
             this.array[index] = bucket;
         }
         const found = bucket.find((element) => element[0] === key); //[key, value] | undefined
@@ -68,7 +68,7 @@ function hash(key) {
         .reduce((acc, code) => (17 + acc + code * 2), 1);
 }
 
-const hashTable = new HashTable();
+const hashTable = new HashTable(110);
 hashTable.set(3, "value");
 hashTable.set("apple", "sweet");
 hashTable.set(3, "haha");
