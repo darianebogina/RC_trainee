@@ -12,7 +12,7 @@ class HashTable {
         const obj = this._getBucket(key);
         const index = obj.index;
         const bucket = obj.bucket || [];
-        if (bucket.length === 0) {
+        if (this.array[index] === undefined) {
             this.array[index] = bucket;
         }
         const found = bucket.find((element) => element[0] === key); //[key, value] | undefined
