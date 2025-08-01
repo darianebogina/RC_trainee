@@ -61,17 +61,17 @@ class HashTable {
 }
 
 function hash(key) {
-    return key
-        .toString()
-        .split('')
-        .map(char => char.charCodeAt(0))
-        .reduce((acc, code) => (17 + acc + code * 2), 1);
+    return key.toString()
+    .split('')
+    .map((char, i) => char.charCodeAt(0) * Math.pow((i + 1), 2))
+    .reduce((acc, code) => (acc + code), 0);
 }
 
 const hashTable = new HashTable(110);
 hashTable.set(3, "value");
 hashTable.set("apple", "sweet");
-hashTable.set(3, "haha");
+hashTable.set("ABC", "pink");
+hashTable.set("CAB", "red");
 console.dir(hashTable, { depth: null });
 console.log(hashTable.get(3));
 console.log(hashTable.get(1));
