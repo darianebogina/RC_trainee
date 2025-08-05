@@ -8,19 +8,24 @@ var OrderType;
 })(OrderType || (OrderType = {}));
 // Проверяет что объект — это Product.
 const isProduct = (obj) => {
-    return (obj !== null &&
-        typeof obj.id === 'string' &&
+    if (typeof obj !== 'object' || obj === null) {
+        return false;
+    }
+    return (typeof obj.id === 'string' &&
         typeof obj.name === 'string' &&
         typeof obj.price === 'number' &&
         typeof obj.category === 'string');
 };
 const isOrder = (obj) => {
+    if (typeof obj !== 'object' || obj === null) {
+        return false;
+    }
     const statusValues = Object.values(OrderType);
-    return (obj !== null &&
-        typeof obj.id === 'string' &&
-        Array.isArray(obj.products) &&
-        obj.products.every(isProduct) &&
-        statusValues.includes(obj.status));
+    const order = obj;
+    return (typeof order.id === 'string' &&
+        Array.isArray(order.products) &&
+        order.products.every(isProduct) &&
+        statusValues.includes(order.status));
 };
 // Обрабатывает заказ только если он типа Order.
 const processOrder = (order) => {
