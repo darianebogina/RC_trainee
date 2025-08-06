@@ -14,6 +14,14 @@ const getFirstElement = (arr) => {
 const mergeObjects = (obj1, obj2) => {
     return Object.assign({}, obj1, obj2);
 };
+const createUser = (name, email, isAdmin) => {
+    return isAdmin !== undefined ?
+        { name, email, isAdmin } : { name, email };
+};
+//const createUser2 = (name: string, email: string, isAdmin?: boolean) => {
+//    return isAdmin !== undefined ?
+//        { name, email, isAdmin } : { name, email };
+//};
 const array1 = [1, 2, 3];
 console.log(getFirstElement(array1));
 const array2 = ['1', '2', '3'];
@@ -31,4 +39,6 @@ const obj2 = {
     price: 11,
 };
 console.log(mergeObjects(obj1, obj2));
+console.log(createUser("Masha", "@gmail.com", true));
+console.log(createUser("Masha", "@gmail.com"));
 //# sourceMappingURL=generics_typeInterface.js.map

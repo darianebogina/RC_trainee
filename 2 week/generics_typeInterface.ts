@@ -14,6 +14,34 @@ const getFirstElement = <T>(arr: T[]): T => {
 const mergeObjects = <T, U>(obj1: T, obj2: U): T & U => {
     return Object.assign({}, obj1, obj2);
 };
+/*
+Напиши простую функцию `createUser = (name: string, email: string, isAdmin?: boolean) => {}`, которая возвращает объект типа `User`:
+```ts
+type User = {
+	name: string;
+	email: string;
+	isAdmin?: boolean;
+}
+```
+Посмотри как TS выводит тип, когда ты явно указываешь тип возвращаемой функции и нет
+- `createUser = () => {}`
+- `createUser = ():User => {}`
+*/
+type User = {
+    name: string;
+    email: string;
+    isAdmin?: boolean;
+}
+
+const createUser = (name: string, email: string, isAdmin?: boolean): User => {
+    return isAdmin !== undefined ?
+        { name, email, isAdmin } : { name, email };
+};
+
+//const createUser2 = (name: string, email: string, isAdmin?: boolean) => {
+//    return isAdmin !== undefined ?
+//        { name, email, isAdmin } : { name, email };
+//};
 
 const array1: Array<number> = [1, 2, 3];
 console.log(getFirstElement(array1));
@@ -35,3 +63,6 @@ const obj2 = {
 };
 
 console.log(mergeObjects(obj1, obj2));
+
+console.log(createUser("Masha", "@gmail.com", true));
+console.log(createUser("Masha", "@gmail.com"));
