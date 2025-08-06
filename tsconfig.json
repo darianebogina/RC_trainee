@@ -35,6 +35,6 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
-    "outDir": "./2 week/build",  
+    "outDir": "./build",
   }
 }
